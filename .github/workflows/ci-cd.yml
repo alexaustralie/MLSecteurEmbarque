@@ -19,8 +19,14 @@ jobs:
     - name: Tag Docker image
       run: docker tag alexaustralie/house_price_model:latest alexaustralie/house_price_model:latest
 
+
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
     - name: Push Docker image
       run: docker push alexaustralie/house_price_model:latest
+
+    - name: To server
+      run: ssh ubuntu@20.86.55.5 "docker compose pull alexaustralie/house_price_model"
+
+
