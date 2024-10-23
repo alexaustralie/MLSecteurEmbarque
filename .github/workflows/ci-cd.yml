@@ -36,5 +36,5 @@ jobs:
       run: docker pull alexaustralie/house_price_model:latest
 
     - name: Run Docker 
-      run: docker run -p 6789:6789 --name my-fastapi-app -d alexaustralie/house_price_model:latest
+      run: docker run -d --name my-app -p 6789:6789 alexaustralie/house_price_model:latest
 
