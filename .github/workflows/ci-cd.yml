@@ -36,5 +36,5 @@ jobs:
       run: docker pull alexaustralie/house_price_model
 
     - name: Run Docker 
-      run: docker run alexaustralie/house_price_model
+      run: docker run -d alexaustralie/house_price_model
 
