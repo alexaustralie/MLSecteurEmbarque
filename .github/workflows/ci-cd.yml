@@ -22,8 +22,13 @@ jobs:
     - name: Log in to Docker Hub
       run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
 
-    - name: Push Docker image
-      run: docker push alexaustralie/house_price_model:latest
+    - name: Build and Push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: alexaustralie/house_price_model:latest
 
     - name: To server
       run: ssh ssh ubuntu@20.61.171.129 "docker compose pull alexaustralie/house_price_model"
