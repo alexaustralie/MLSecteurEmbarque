@@ -33,7 +33,7 @@ jobs:
       run: ssh ubuntu@20.86.55.5 "docker compose pull alexaustralie/house_price_model"
 
     - name: Pull Docker image on remote server
-      run: sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "docker compose pull alexaustralie/house_price_model"
+      run: sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "docker pull alexaustralie/house_price_model"
 
     - name: Restart Docker container on remote server
       run: sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "docker compose restart"
