@@ -14,10 +14,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build Docker image
-      run: docker build -t alexaustralie/house_price_model
+      run: docker build -t alexaustralie/house_price_model:latest .
       
     - name: Tag Docker image
-      run: docker tag alexaustralie/house_price_model alexaustralie/house_price_model
+      run: docker tag alexaustralie/house_price_model:latest alexaustralie/house_price_model:latest
 
     - name: Log in to Docker Hub
       run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
