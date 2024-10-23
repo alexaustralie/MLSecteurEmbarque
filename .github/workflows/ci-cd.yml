@@ -14,16 +14,16 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build Docker image
-      run: docker build -t alexaustralie/house_price_model:latest .
+      run: docker build -t alexaustralie/house_price_model
       
     - name: Tag Docker image
-      run: docker tag alexaustralie/house_price_model:latest alexaustralie/house_price_model:latest
+      run: docker tag alexaustralie/house_price_model alexaustralie/house_price_model
 
     - name: Log in to Docker Hub
       run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
 
     - name: Push Docker image
-      run: docker push alexaustralie/house_price_model:latest
+      run: docker push alexaustralie/house_price_model
 
     - name: To server
       run: ssh ssh ubuntu@20.61.171.129 "docker compose pull alexaustralie/house_price_model"
