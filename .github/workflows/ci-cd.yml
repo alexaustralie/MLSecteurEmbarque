@@ -14,8 +14,8 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build Docker image
-      run: docker build -t alexandre.bailly@epita.fr/house_price_model:latest .
-
+      run: docker build -t alexaustralie/house_price_model:latest .
+      
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
