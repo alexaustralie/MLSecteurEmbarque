@@ -36,5 +36,5 @@ jobs:
       run: docker pull alexaustralie/house_price_model
 
     - name: Run Docker 
-      run: docker compose up alexaustralie/house_price_model
+      run: docker run -p 6789:6789 alexaustralie/house_price_model
 
