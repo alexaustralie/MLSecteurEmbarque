@@ -23,7 +23,8 @@ jobs:
       run: docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
 
     - name: Push Docker image
-      run: docker push alexaustralie/house_price_model
+      run: docker push alexaustralie/house_price_model:latest
+
 
     - name: To server
       run: ssh ssh ubuntu@20.61.171.129 "docker compose pull alexaustralie/house_price_model"
