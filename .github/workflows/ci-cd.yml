@@ -35,10 +35,6 @@ jobs:
     - name: Pull Docker 
       run: docker pull alexaustralie/house_price_model
 
-    - name: Clone and deploy
-      run: |
-        git clone git@github.com:alexaustralie/MLSecteurEmbarque.git
-        cd MLSecteurEmbarque
-        docker compose up -d --pull always --force-recreate
-    
+    - name: Run Docker 
+      run: docker compose up -p 6789:6789 -d alexaustralie/house_price_model
 
