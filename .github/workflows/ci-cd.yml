@@ -30,6 +30,6 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y sshpass
  
     - name: To server
-      run: sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "docker pull alexaustralie/house_price_model:latest && docker run -d --name test -p 6789:6789 alexaustralie/house_price_model:latest"
+      run: sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no ubuntu@20.86.55.5 "docker pull alexaustralie/house_price_model:latest && (docker ps -q -f name=test && docker stop test && docker rm test || true) && docker run -d --name test -p 6789:6789 alexaustralie/house_price_model:latest"
 
 
